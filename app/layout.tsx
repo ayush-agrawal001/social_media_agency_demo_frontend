@@ -1,15 +1,15 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Space_Grotesk } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 import { getSiteOrigin } from "./site-origin";
 
-const display = Archivo_Black({
+const display = Cormorant_Garamond({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
+  weight: ["400", "500", "600", "700"],
 });
 
-const sans = Space_Grotesk({
+const sans = Manrope({
   variable: "--font-sans",
   subsets: ["latin"],
 });
@@ -40,7 +40,7 @@ export async function generateMetadata(): Promise<Metadata> {
       siteName: "Cinemoon",
       locale: "en_GB",
       type: "website",
-      images: [{ url: image, width: 1731, height: 908, alt: "Cinemoon — We make brands impossible to scroll past." }],
+      images: [{ url: image, width: 1729, height: 910, alt: "Cinemoon — Social-first creative agency." }],
     },
     twitter: {
       card: "summary_large_image",
