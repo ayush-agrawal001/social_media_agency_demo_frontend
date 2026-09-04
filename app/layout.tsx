@@ -75,7 +75,7 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body className={`${display.variable} ${sans.variable}`}>
+      <body className={`${display.variable} ${sans.variable}`} suppressHydrationWarning>
         {children}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
       </body>
