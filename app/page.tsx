@@ -66,7 +66,8 @@ export default function Home() {
     <main>
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Cinemoon Studios home">
-          <span>CINEMOON</span><small>STUDIOS</small>
+          <Image className="wordmark-logo" src="/studio/cinemoon-logo.jpg" alt="" width={44} height={44} sizes="44px" />
+          <span className="wordmark-copy"><strong>CINEMOON</strong><small>STUDIOS</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
           <a href="#about">About</a>
@@ -183,7 +184,7 @@ export default function Home() {
       <section className="founder">
         <div className="founder-brand" aria-label="Cinemoon Studios logo">
           <span className="founder-brand-label">Independent creative studio</span>
-          <div className="founder-monogram" aria-hidden="true"><span>C</span><span>M</span></div>
+          <Image className="founder-logo" src="/studio/cinemoon-logo.jpg" alt="Official Cinemoon Studios logo" width={420} height={420} sizes="(max-width: 700px) 66vw, 32vw" />
           <div className="founder-wordmark"><strong>CINEMOON</strong><span>STUDIOS</span></div>
           <span className="founder-brand-line" aria-hidden="true" />
         </div>
@@ -213,7 +214,7 @@ export default function Home() {
 
       <footer className="footer">
         <div className="footer-main">
-          <a className="footer-wordmark" href="#top">CINEMOON</a>
+          <div className="footer-brand"><Image src="/studio/cinemoon-logo.jpg" alt="" width={78} height={78} sizes="78px" /><a className="footer-wordmark" href="#top">CINEMOON</a></div>
           <p>Ad agency &amp; production house.<br />Framing thoughts and visions into reality.</p>
         </div>
         <div className="footer-links">

@@ -32,7 +32,7 @@ export async function generateMetadata(): Promise<Metadata> {
       follow: true,
       googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
     },
-    icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+    icons: { icon: "/studio/cinemoon-logo.jpg", shortcut: "/studio/cinemoon-logo.jpg", apple: "/studio/cinemoon-logo.jpg" },
     openGraph: {
       title: "Cinemoon Studios | From Vision to Reality",
       description: "An ad agency and production house creating films, brand stories and social content.",
@@ -62,7 +62,7 @@ export default async function RootLayout({
     "@type": "ProfessionalService",
     name: "Cinemoon Studios",
     url: origin,
-    logo: `${origin}/favicon.svg`,
+    logo: `${origin}/studio/cinemoon-logo.jpg`,
     image: `${origin}/og.png`,
     description: "An ad agency and production house creating films, brand stories, social content, photography and branded experiences.",
     email: "info@cinemoonstudios.com",
