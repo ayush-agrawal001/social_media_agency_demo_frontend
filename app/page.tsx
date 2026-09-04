@@ -181,11 +181,14 @@ export default function Home() {
       </section>
 
       <section className="founder">
-        <figure className="founder-image">
-          <Image src="/studio/aishwarya-sharma.webp" alt="Aishwarya Sharma, founder of Cinemoon Studios" fill sizes="(max-width: 800px) 100vw, 42vw" />
-        </figure>
+        <div className="founder-brand" aria-label="Cinemoon Studios logo">
+          <span className="founder-brand-label">Independent creative studio</span>
+          <div className="founder-monogram" aria-hidden="true"><span>C</span><span>M</span></div>
+          <div className="founder-wordmark"><strong>CINEMOON</strong><span>STUDIOS</span></div>
+          <span className="founder-brand-line" aria-hidden="true" />
+        </div>
         <div className="founder-copy">
-          <span className="eyebrow gold-text">The founder&apos;s vision</span>
+          <span className="eyebrow gold-text">The vision behind Cinemoon</span>
           <blockquote>“A space that fosters exceptional storytelling and empowers talented individuals within our state.”</blockquote>
           <div><strong>Aishwarya Sharma</strong><span>Creative Director &amp; Producer</span></div>
         </div>
