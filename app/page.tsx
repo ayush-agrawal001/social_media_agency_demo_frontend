@@ -1,84 +1,157 @@
+import Image from "next/image";
+
 const services = [
-  { number: "01", name: "Social strategy", description: "Audience, culture and platform insight shaped into a clear plan your team can act on." },
-  { number: "02", name: "Content production", description: "Films, stills and social-native stories with a consistent visual point of view." },
-  { number: "03", name: "Paid social", description: "Creative testing and thoughtful media placement that turn attention into measurable growth." },
-  { number: "04", name: "Influencer campaigns", description: "Creator partnerships built around credible ideas, careful casting and useful reporting." },
-  { number: "05", name: "Creative direction", description: "Distinctive campaign worlds and design systems made to stay coherent across every touchpoint." },
+  {
+    number: "01",
+    name: "Ad agency & content",
+    description: "Ad films, product films, corporate videos, brand stories, social creatives, photography, motion graphics and VFX.",
+  },
+  {
+    number: "02",
+    name: "Production house",
+    description: "Feature films, short films, music videos, documentaries and podcasts—from pre-production through post.",
+  },
+  {
+    number: "03",
+    name: "Branding",
+    description: "Identity design, brand guidelines, positioning, campaign collateral, landing pages and complete website design.",
+  },
+  {
+    number: "04",
+    name: "Social media",
+    description: "Strategy, content planning, community management, paid campaigns, analytics and reporting for purposeful growth.",
+  },
 ];
 
-const projects = [
-  { index: "01", client: "Morrow Studio", title: "Wear the night", category: "Campaign · Creative direction", result: "14.8M organic views", className: "project-night" },
-  { index: "02", client: "Sonic / 07", title: "A launch with gravity", category: "Strategy · Content system", result: "82K pre-orders", className: "project-orbit" },
-  { index: "03", client: "Aster House", title: "Quietly unforgettable", category: "Brand world · Social launch", result: "4.9× return on spend", className: "project-aster" },
+const capabilities = [
+  {
+    title: "Product shoots",
+    label: "Photography · Film",
+    description: "Polished product imagery and films shaped for campaigns, catalogues and social feeds.",
+    image: "/studio/camera-detail.webp",
+    alt: "Cinema camera being prepared by a production crew",
+  },
+  {
+    title: "Ad films",
+    label: "Concept · Production",
+    description: "End-to-end commercials built around a clear idea and crafted for the screen where they will live.",
+    image: "/studio/hero-production.webp",
+    alt: "Film crew recording an interview on set",
+  },
+  {
+    title: "Social creatives",
+    label: "Strategy · Content",
+    description: "Platform-aware campaigns and content systems that keep brands clear, current and consistent.",
+    image: "/studio/production-team.webp",
+    alt: "Creative production team reviewing a camera on set",
+  },
 ];
 
 const process = [
-  ["01", "Find the signal", "We study the category, the audience and the conversations that actually matter."],
-  ["02", "Shape the idea", "Strategy and creative direction meet in one clear, ownable campaign thought."],
-  ["03", "Make it move", "We produce, publish, test and refine without losing the original point of view."],
+  ["01", "Planning", "We understand the brief, audience and ambition, then shape the idea and the route to make it real."],
+  ["02", "Organising", "People, production, timelines and every moving part come together under one clear plan."],
+  ["03", "Executing", "We produce, refine and deliver the work with the craft and care the original vision deserves."],
 ];
+
+const team = [
+  ["Hardik Sahu", "Video producer · Filmmaker · Photographer"],
+  ["Swapnil Mathew", "Product photographer · Cinematographer · Visual artist"],
+  ["Sanjay Jain", "Filmmaker · Director · Producer"],
+];
+
+const instagramUrl = "https://www.instagram.com/cinemoon.studios?igsi=MXdnZTF0enpqN2Jn";
 
 export default function Home() {
   return (
     <main>
       <header className="site-header">
-        <a className="wordmark" href="#top" aria-label="Cinemoon home">CINEM<span>O</span>ON</a>
+        <a className="wordmark" href="#top" aria-label="Cinemoon Studios home">
+          <span>CINEMOON</span><small>STUDIOS</small>
+        </a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a><a href="#contact">Contact</a>
+          <a href="#about">About</a>
+          <a href="#work">Work</a>
+          <a href="#services">Services</a>
+          <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cta" href="mailto:hello@cinemoon.agency">Start a project <span aria-hidden="true">↗</span></a>
+        <a className="header-cta" href="mailto:info@cinemoonstudios.com?subject=New%20project%20enquiry">
+          Start a project <span aria-hidden="true">↗</span>
+        </a>
       </header>
 
       <section className="hero" id="top">
         <div className="hero-copy">
-          <p className="eyebrow gold-text">Independent social-first creative agency</p>
-          <h1>We make brands<span>impossible to ignore.</span></h1>
-          <p className="hero-intro">Thoughtful strategy, distinctive content and social campaigns designed to earn attention—and keep it.</p>
+          <p className="eyebrow gold-text">Ad agency · Production house</p>
+          <h1>From vision<span>to reality.</span></h1>
+          <p className="hero-intro">We shape ideas into films, brand stories and social content that move people and brands forward.</p>
           <div className="hero-actions">
-            <a className="button button-gold" href="#work">Explore our work <span aria-hidden="true">↘</span></a>
-            <a className="text-link" href="mailto:hello@cinemoon.agency">Let&apos;s work together <span aria-hidden="true">↗</span></a>
+            <a className="button button-gold" href="#work">View our work <span aria-hidden="true">↘</span></a>
+            <a className="text-link" href="mailto:info@cinemoonstudios.com">Start a conversation <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div className="hero-art" aria-hidden="true">
-          <div className="moon-ring" />
-          <div className="gold-moon"><span className="crater crater-one" /><span className="crater crater-two" /><span className="crater crater-three" /></div>
-          <span className="orbit-copy orbit-copy-top">Strategy / Creative / Media</span>
-          <span className="orbit-copy orbit-copy-bottom">London · Mumbai · Worldwide</span>
+        <div className="hero-art">
+          <Image src="/studio/hero-production.webp" alt="A film crew recording an on-set interview" fill priority sizes="(max-width: 980px) 100vw, 48vw" />
+          <span className="hero-image-tag">Films · Brands · Stories</span>
+          <span className="hero-frame-corner" aria-hidden="true" />
         </div>
-        <div className="hero-index" aria-hidden="true"><span>CM / 01</span><span>Scroll to discover</span></div>
+        <div className="hero-index" aria-hidden="true"><span>Independent creative studio</span><span>Scroll to discover</span></div>
       </section>
 
-      <section className="client-strip" aria-label="Selected clients">
-        <span className="eyebrow">Selected clients</span>
-        <div className="client-names"><strong>MORROW</strong><strong>SONIC/07</strong><strong>ASTER HOUSE</strong><strong>NORTH &amp; CO.</strong><strong>HALO</strong></div>
+      <section className="studio-strip" aria-label="Cinemoon Studios disciplines">
+        <span>Creative direction</span><span>Film production</span><span>Brand building</span><span>Social media</span>
       </section>
 
-      <section className="intro section-shell" id="about">
-        <div className="section-label"><span className="eyebrow">01 / About</span><span className="hairline" /></div>
-        <div className="intro-statement">
-          <p>Built for the way people discover, share and choose brands now.</p>
-          <h2>Clear thinking.<br />Beautifully expressed.<br /><em>Made to perform.</em></h2>
+      <section className="about section-shell" id="about">
+        <div className="section-label"><span className="eyebrow">01 / About Cinemoon</span><span className="hairline" /></div>
+        <div className="about-heading">
+          <h2>Stories deserve<br /><em>space to be seen.</em></h2>
+          <p>Cinemoon Studios began with a simple purpose: give talented artists the platform, resources and collaboration their ideas deserve.</p>
         </div>
-        <div className="intro-grid">
-          <div className="editorial-visual visual-portrait" aria-hidden="true"><span className="visual-moon" /><span className="visual-caption">Ideas with pull</span></div>
-          <div className="intro-copy">
-            <p>Cinemoon brings strategy, creative and media into one calm, senior team. No layers, no noise—just an idea strong enough to travel and the craft to take it everywhere.</p>
-            <a className="text-link dark-link" href="#services">How we work <span aria-hidden="true">↘</span></a>
+        <div className="about-grid">
+          <figure className="image-panel camera-panel">
+            <Image src="/studio/camera-portrait.webp" alt="A cinema camera on set" fill sizes="(max-width: 700px) 100vw, 34vw" />
+            <figcaption>Behind every frame, a clear intention.</figcaption>
+          </figure>
+          <div className="about-copy">
+            <span className="eyebrow gold-ink">What drives us</span>
+            <p>We bring creative vision and technical craft together to turn thoughts into polished films and media that resonate.</p>
+            <p className="small-copy">Our studio is built on opportunity, artistic expression and the belief that meaningful work grows through generous collaboration.</p>
+            <a className="text-link dark-link" href="#services">Explore the studio <span aria-hidden="true">↘</span></a>
           </div>
-          <div className="editorial-visual visual-detail" aria-hidden="true">
-            <span className="detail-line line-one" /><span className="detail-line line-two" /><span className="detail-line line-three" /><span className="visual-caption">Culture, considered</span>
-          </div>
+        </div>
+      </section>
+
+      <section className="vision-feature">
+        <div className="vision-copy">
+          <span className="eyebrow gold-text">House of Vision</span>
+          <h2>The founder<br />behind the brand.</h2>
+          <p>A founder-first storytelling experience created to bring the people, purpose and journey behind a business into focus.</p>
+          <a className="button button-outline" href="mailto:info@cinemoonstudios.com?subject=House%20of%20Vision">Tell your story <span aria-hidden="true">↗</span></a>
+        </div>
+        <div className="vision-steps" aria-label="House of Vision experience">
+          <div><span>01</span><strong>Discovery</strong><p>Understand the founder, the journey and the reason the brand exists.</p></div>
+          <div><span>02</span><strong>Story development</strong><p>Shape a sincere narrative with a clear emotional and strategic thread.</p></div>
+          <div><span>03</span><strong>Production</strong><p>Create the founder film, photography and short-form content.</p></div>
+          <div><span>04</span><strong>Brand showcase</strong><p>Build lasting assets that earn recognition and trust.</p></div>
         </div>
       </section>
 
       <section className="work section-shell" id="work">
-        <div className="section-label"><span className="eyebrow">02 / Selected work</span><a className="quiet-link" href="mailto:hello@cinemoon.agency?subject=Portfolio%20request">Request full portfolio ↗</a></div>
-        <div className="work-heading"><h2>Work with<br /><em>lasting pull.</em></h2><p>Selected campaigns where a clear idea, a precise visual language and the right distribution moved the numbers that mattered.</p></div>
-        <div className="project-grid">
-          {projects.map((project) => (
-            <article className="project-card" key={project.index}>
-              <div className={`project-visual ${project.className}`}><span className="project-index">{project.index}</span><div className="project-art" aria-hidden="true" /><span className="project-result">{project.result}</span></div>
-              <div className="project-meta"><div><span>{project.client}</span><h3>{project.title}</h3></div><p>{project.category}</p></div>
+        <div className="section-label"><span className="eyebrow">02 / What we create</span><span className="hairline" /></div>
+        <div className="work-heading">
+          <h2>Made for the<br /><em>moment it matters.</em></h2>
+          <p>From the first frame to the final format, every detail is shaped around where the story needs to go.</p>
+        </div>
+        <div className="capability-grid">
+          {capabilities.map((item, index) => (
+            <article className="capability-card" key={item.title}>
+              <div className="capability-image">
+                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </div>
+              <p className="eyebrow">{item.label}</p>
+              <h3>{item.title}</h3>
+              <p className="capability-description">{item.description}</p>
             </article>
           ))}
         </div>
@@ -87,7 +160,7 @@ export default function Home() {
       <section className="services" id="services">
         <div className="services-intro section-shell">
           <div className="section-label"><span className="eyebrow gold-text">03 / Services</span><span className="hairline light-line" /></div>
-          <div className="services-heading"><h2>Everything a brand needs to move with confidence.</h2><p>One integrated studio from the first insight to the final report.</p></div>
+          <div className="services-heading"><h2>One studio.<br />Every moving part.</h2><p>Creative, production and distribution brought together around one clear vision.</p></div>
         </div>
         <div className="service-list">
           {services.map((service) => (
@@ -99,41 +172,52 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="results section-shell" aria-labelledby="results-title">
-        <div className="section-label"><span className="eyebrow">04 / Selected results</span><span className="hairline" /></div>
-        <div className="results-heading"><h2 id="results-title">Attention is only useful when it creates momentum.</h2><p>Recent work across brand, content and performance.</p></div>
-        <div className="metric-grid">
-          <div className="metric"><strong>120M<span>+</span></strong><p>Organic views</p></div>
-          <div className="metric"><strong>4.8<span>×</span></strong><p>Average paid ROAS</p></div>
-          <div className="metric"><strong>300<span>+</span></strong><p>Campaigns launched</p></div>
-          <div className="metric"><strong>45<span>+</span></strong><p>Brands grown</p></div>
-        </div>
-      </section>
-
       <section className="process section-shell">
-        <div className="section-label"><span className="eyebrow">05 / Our process</span><span className="hairline" /></div>
-        <div className="process-heading"><h2>Simple by design.<br /><em>Rigorous underneath.</em></h2><p>A direct, collaborative process that keeps decisions clear and the work moving.</p></div>
+        <div className="section-label"><span className="eyebrow">04 / Our process</span><span className="hairline" /></div>
+        <div className="process-heading"><h2>Clear from idea<br /><em>to delivery.</em></h2><p>Three stages keep the work focused, collaborative and moving with purpose.</p></div>
         <div className="process-grid">
           {process.map(([number, title, copy]) => <article className="process-card" key={number}><span>{number}</span><h3>{title}</h3><p>{copy}</p></article>)}
         </div>
       </section>
 
-      <section className="testimonial">
-        <div className="testimonial-moon" aria-hidden="true" />
-        <span className="eyebrow gold-text">A client view</span>
-        <blockquote>“Cinemoon gave our brand a point of view people wanted to follow—and a campaign that delivered far beyond the brief.”</blockquote>
-        <div className="testimonial-author"><span>Maya Rao</span><span>Global Brand Director, Morrow</span></div>
+      <section className="founder">
+        <figure className="founder-image">
+          <Image src="/studio/aishwarya-sharma.webp" alt="Aishwarya Sharma, founder of Cinemoon Studios" fill sizes="(max-width: 800px) 100vw, 42vw" />
+        </figure>
+        <div className="founder-copy">
+          <span className="eyebrow gold-text">The founder&apos;s vision</span>
+          <blockquote>“A space that fosters exceptional storytelling and empowers talented individuals within our state.”</blockquote>
+          <div><strong>Aishwarya Sharma</strong><span>Creative Director &amp; Producer</span></div>
+        </div>
+      </section>
+
+      <section className="team section-shell" aria-labelledby="team-title">
+        <div className="section-label"><span className="eyebrow">05 / The team</span><span className="hairline" /></div>
+        <div className="team-heading"><h2 id="team-title">A collective of<br /><em>makers.</em></h2><p>Directors, producers, cinematographers and visual artists working as one team.</p></div>
+        <div className="team-list">
+          {team.map(([name, role], index) => <div className="team-row" key={name}><span>{String(index + 1).padStart(2, "0")}</span><strong>{name}</strong><p>{role}</p></div>)}
+        </div>
       </section>
 
       <section className="contact section-shell" id="contact">
-        <div className="contact-copy"><span className="eyebrow">06 / Start a conversation</span><h2>Ready to give your brand more <em>pull?</em></h2></div>
-        <div className="contact-action"><p>Tell us where you are, where you want to go and what is getting in the way.</p><a className="button button-navy" href="mailto:hello@cinemoon.agency?subject=New%20project%20enquiry">hello@cinemoon.agency <span aria-hidden="true">↗</span></a></div>
+        <div className="contact-copy"><span className="eyebrow">06 / Start a conversation</span><h2>Have an idea?<br /><em>Let&apos;s frame it.</em></h2></div>
+        <div className="contact-action">
+          <p>Tell us what you want to create. We&apos;ll help shape the right way to bring it to life.</p>
+          <a className="button button-navy" href="mailto:info@cinemoonstudios.com?subject=New%20project%20enquiry">info@cinemoonstudios.com <span aria-hidden="true">↗</span></a>
+          <a className="contact-phone" href="tel:+917773839884">+91 77738 39884</a>
+        </div>
       </section>
 
       <footer className="footer">
-        <div className="footer-main"><a className="footer-wordmark" href="#top">CINEM<span>O</span>ON</a><p>Social-first creative studio.<br />London · Mumbai · Worldwide.</p></div>
-        <div className="footer-links"><div><span>Explore</span><a href="#work">Work</a><a href="#about">About</a><a href="#services">Services</a></div><div><span>Follow</span><span className="social-placeholder">Instagram</span><span className="social-placeholder">LinkedIn</span><span className="social-placeholder">Behance</span></div></div>
-        <div className="footer-bottom"><span>© 2026 Cinemoon</span><span>Built for attention that lasts.</span><a href="#top">Back to top ↑</a></div>
+        <div className="footer-main">
+          <a className="footer-wordmark" href="#top">CINEMOON</a>
+          <p>Ad agency &amp; production house.<br />Framing thoughts and visions into reality.</p>
+        </div>
+        <div className="footer-links">
+          <div><span>Explore</span><a href="#about">About</a><a href="#work">Work</a><a href="#services">Services</a></div>
+          <div><span>Connect</span><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href="mailto:info@cinemoonstudios.com">Email ↗</a><a href="tel:+917773839884">Call ↗</a></div>
+        </div>
+        <div className="footer-bottom"><span>© 2026 Cinemoon Studios</span><span>Raipur, Chhattisgarh</span><a href="#top">Back to top ↑</a></div>
       </footer>
     </main>
   );

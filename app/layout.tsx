@@ -20,13 +20,13 @@ export async function generateMetadata(): Promise<Metadata> {
 
   return {
     metadataBase: new URL(origin),
-    title: "Cinemoon — Social-First Creative Agency",
-    description: "Campaigns, content and digital experiences that make brands impossible to scroll past.",
+    title: "Cinemoon Studios | Ad Agency & Production House",
+    description: "Cinemoon Studios turns ideas into ad films, brand stories, social content, photography and complete production experiences.",
     alternates: { canonical: "/" },
-    keywords: ["social media agency", "creative agency", "content production", "social strategy", "paid social", "influencer marketing"],
-    authors: [{ name: "Cinemoon" }],
-    creator: "Cinemoon",
-    publisher: "Cinemoon",
+    keywords: ["Cinemoon Studios", "production house", "ad agency", "film production", "content creation", "branding agency", "social media marketing", "Raipur production house"],
+    authors: [{ name: "Cinemoon Studios" }],
+    creator: "Cinemoon Studios",
+    publisher: "Cinemoon Studios",
     robots: {
       index: true,
       follow: true,
@@ -34,18 +34,18 @@ export async function generateMetadata(): Promise<Metadata> {
     },
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
     openGraph: {
-      title: "Cinemoon — Impossible to Scroll Past",
-      description: "A social-first creative agency moving at the speed of culture.",
+      title: "Cinemoon Studios | From Vision to Reality",
+      description: "An ad agency and production house creating films, brand stories and social content.",
       url: "/",
-      siteName: "Cinemoon",
-      locale: "en_GB",
+      siteName: "Cinemoon Studios",
+      locale: "en_IN",
       type: "website",
-      images: [{ url: image, width: 1729, height: 910, alt: "Cinemoon — Social-first creative agency." }],
+      images: [{ url: image, width: 1200, height: 630, alt: "Cinemoon Studios — From vision to reality." }],
     },
     twitter: {
       card: "summary_large_image",
-      title: "Cinemoon — Impossible to Scroll Past",
-      description: "A social-first creative agency moving at the speed of culture.",
+      title: "Cinemoon Studios | From Vision to Reality",
+      description: "An ad agency and production house creating films, brand stories and social content.",
       images: [image],
     },
   };
@@ -60,14 +60,17 @@ export default async function RootLayout({
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
-    name: "Cinemoon",
+    name: "Cinemoon Studios",
     url: origin,
     logo: `${origin}/favicon.svg`,
     image: `${origin}/og.png`,
-    description: "A social-first creative agency producing campaigns, content and digital experiences that move at the speed of culture.",
-    email: "hello@cinemoon.agency",
-    areaServed: "Worldwide",
-    knowsAbout: ["Social media strategy", "Content production", "Paid social", "Influencer marketing", "Brand campaigns", "Community management"],
+    description: "An ad agency and production house creating films, brand stories, social content, photography and branded experiences.",
+    email: "info@cinemoonstudios.com",
+    telephone: "+91 77738 39884",
+    areaServed: "India",
+    founder: { "@type": "Person", name: "Aishwarya Sharma" },
+    sameAs: ["https://www.instagram.com/cinemoon.studios"],
+    knowsAbout: ["Film production", "Ad films", "Content creation", "Product photography", "Branding", "Social media marketing", "Documentaries", "Music videos"],
   };
 
   return (
