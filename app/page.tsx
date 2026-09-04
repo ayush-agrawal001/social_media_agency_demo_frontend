@@ -81,21 +81,22 @@ export default function Home() {
       </header>
 
       <section className="hero" id="top">
+        <Image className="hero-media" src="/studio/hero-production.webp" alt="A film crew recording an on-set interview" fill priority sizes="(max-width: 700px) 100vw, 1440px" />
+        <div className="hero-shade" aria-hidden="true" />
         <div className="hero-copy">
           <p className="eyebrow gold-text">Ad agency · Production house</p>
-          <h1>From vision<span>to reality.</span></h1>
-          <p className="hero-intro">We shape ideas into films, brand stories and social content that move people and brands forward.</p>
+          <h1>Ideas, framed<br /><em>to be felt.</em></h1>
+          <p className="hero-intro">Films, brand stories and social content made with a clear point of view—and built to move people.</p>
           <div className="hero-actions">
-            <a className="button button-gold" href="#work">View our work <span aria-hidden="true">↘</span></a>
-            <a className="text-link" href="mailto:info@cinemoonstudios.com">Start a conversation <span aria-hidden="true">↗</span></a>
+            <a className="button button-light" href="#work">Explore the studio <span aria-hidden="true">↘</span></a>
+            <a className="text-link hero-link" href="mailto:info@cinemoonstudios.com">Start a project <span aria-hidden="true">↗</span></a>
           </div>
         </div>
-        <div className="hero-art">
-          <Image src="/studio/hero-production.webp" alt="A film crew recording an on-set interview" fill priority sizes="(max-width: 980px) 100vw, 48vw" />
-          <span className="hero-image-tag">Films · Brands · Stories</span>
-          <span className="hero-frame-corner" aria-hidden="true" />
+        <div className="hero-seal" aria-label="Cinemoon Studios">
+          <Image src="/studio/cinemoon-logo.jpg" alt="" width={72} height={72} sizes="72px" />
+          <span>Independent creative studio</span>
         </div>
-        <div className="hero-index" aria-hidden="true"><span>Independent creative studio</span><span>Scroll to discover</span></div>
+        <div className="hero-index" aria-hidden="true"><span>Raipur · Chhattisgarh</span><span>Scroll to discover</span></div>
       </section>
 
       <section className="studio-strip" aria-label="Cinemoon Studios disciplines">
@@ -104,21 +105,25 @@ export default function Home() {
 
       <section className="about section-shell" id="about">
         <div className="section-label"><span className="eyebrow">01 / About Cinemoon</span><span className="hairline" /></div>
-        <div className="about-heading">
-          <h2>Stories deserve<br /><em>space to be seen.</em></h2>
-          <p>Cinemoon Studios began with a simple purpose: give talented artists the platform, resources and collaboration their ideas deserve.</p>
+        <div className="about-heading editorial-heading">
+          <h2>Creative thinking.<br /><em>Beautifully made.</em></h2>
+          <p>Cinemoon brings strategy, storytelling and production together to create work with both purpose and presence.</p>
         </div>
-        <div className="about-grid">
-          <figure className="image-panel camera-panel">
+        <div className="about-editorial">
+          <figure className="image-panel about-image-left">
             <Image src="/studio/camera-portrait.webp" alt="A cinema camera on set" fill sizes="(max-width: 700px) 100vw, 34vw" />
-            <figcaption>Behind every frame, a clear intention.</figcaption>
+            <figcaption>Craft in every frame</figcaption>
           </figure>
           <div className="about-copy">
-            <span className="eyebrow gold-ink">What drives us</span>
-            <p>We bring creative vision and technical craft together to turn thoughts into polished films and media that resonate.</p>
-            <p className="small-copy">Our studio is built on opportunity, artistic expression and the belief that meaningful work grows through generous collaboration.</p>
-            <a className="text-link dark-link" href="#services">Explore the studio <span aria-hidden="true">↘</span></a>
+            <span className="eyebrow gold-ink">The Cinemoon approach</span>
+            <p>We turn thoughts and visions into work people remember.</p>
+            <p className="small-copy">Our independent studio gives ideas the strategy, craft and collaborative space they need—from the first brief to the final frame.</p>
+            <a className="button button-navy" href="#services">View our services <span aria-hidden="true">↘</span></a>
           </div>
+          <figure className="image-panel about-image-right">
+            <Image src="/studio/production-team.webp" alt="A creative team working together on set" fill sizes="(max-width: 700px) 100vw, 34vw" />
+            <figcaption>Made through collaboration</figcaption>
+          </figure>
         </div>
       </section>
 
@@ -148,10 +153,9 @@ export default function Home() {
             <article className="capability-card" key={item.title}>
               <div className="capability-image">
                 <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                <span>{String(index + 1).padStart(2, "0")}</span>
+                <span className="capability-number">{String(index + 1).padStart(2, "0")}</span>
+                <div className="capability-overlay"><p>{item.label}</p><h3>{item.title}</h3></div>
               </div>
-              <p className="eyebrow">{item.label}</p>
-              <h3>{item.title}</h3>
               <p className="capability-description">{item.description}</p>
             </article>
           ))}
