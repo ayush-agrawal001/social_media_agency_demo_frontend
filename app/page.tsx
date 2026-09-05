@@ -1,4 +1,6 @@
 import Image from "next/image";
+import ProjectPlayer from "./project-player";
+import StudioInteractions from "./studio-interactions";
 
 const services = [
   {
@@ -35,6 +37,7 @@ const capabilities = [
       "Tightly written, platform-aware films designed to earn attention in the first seconds and stay memorable after the scroll.",
     image: "/studio/camera-detail.webp",
     alt: "Cinema camera being prepared by a production crew",
+    className: "format-wide",
   },
   {
     title: "Founder stories",
@@ -43,6 +46,7 @@ const capabilities = [
       "Human stories shaped around the spark, struggle, pivot, rise and vision behind a founder-led business.",
     image: "/studio/hero-production.webp",
     alt: "A founder being interviewed by a film crew",
+    className: "format-portrait",
   },
   {
     title: "Location films",
@@ -51,6 +55,7 @@ const capabilities = [
       "On-location production that makes people, processes and spaces feel as considered on screen as they are in real life.",
     image: "/studio/production-team.webp",
     alt: "A production team operating a cinema camera on location",
+    className: "format-bleed",
   },
 ];
 
@@ -84,276 +89,266 @@ const team = [
 
 const instagramUrl = "https://www.instagram.com/cinemoon.studios?igsi=MXdnZTF0enpqN2Jn";
 
+function SectionRail({ index, label, time }: { index: string; label: string; time: string }) {
+  return (
+    <div className="section-rail" aria-hidden="true">
+      <span>{index} / {label}</span>
+      <span className="rail-line" />
+      <span>{time}</span>
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main>
+    <main id="top">
+      <StudioInteractions />
       <div className="film-scrubber" aria-hidden="true" />
+      <div className="project-cursor" aria-hidden="true">VIEW</div>
 
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Cinemoon Studios home">
-          <Image className="wordmark-logo" src="/studio/cinemoon-logo.jpg" alt="" width={44} height={44} sizes="44px" />
-          <span className="wordmark-copy"><strong>CINEMOON</strong><small>STUDIOS</small></span>
+          <Image src="/studio/cinemoon-logo.jpg" alt="" width={40} height={40} sizes="40px" priority />
+          <span><strong>CINEMOON</strong><small>STUDIOS / RAIPUR</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#house-of-vision">House of Vision</a>
           <a href="#work">Work</a>
           <a href="#services">Services</a>
+          <a href="#about">About</a>
           <a href="#contact">Contact</a>
         </nav>
-        <a className="header-cta" href="mailto:info@cinemoonstudios.com?subject=New%20film%20enquiry">
-          Start a film <span aria-hidden="true">↗</span>
-        </a>
+        <details className="mobile-menu">
+          <summary>Menu</summary>
+          <nav aria-label="Mobile navigation">
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+          </nav>
+        </details>
+        <a className="header-contact" href="mailto:info@cinemoonstudios.com?subject=New%20film%20enquiry">Start a film ↗</a>
       </header>
 
-      <section className="hero" id="top">
-        <Image className="hero-media" src="/studio/hero-production.webp" alt="A film crew recording an on-set founder interview" fill priority sizes="100vw" />
-        <div className="hero-shade" aria-hidden="true" />
-        <div className="hero-copy">
-          <p className="eyebrow gold-text hero-eyebrow">Video production · Brand storytelling</p>
-          <h1>
-            <span className="line"><span>Films that make</span></span>
-            <span className="line"><em>people care.</em></span>
-          </h1>
-          <p className="hero-intro">Short ads, founder documentaries and production-led social content—from the first line of the script to the final cut.</p>
-          <div className="hero-actions">
-            <a className="button button-light" href="#house-of-vision">Discover House of Vision <span aria-hidden="true">↘</span></a>
-            <a className="text-link hero-link" href="mailto:info@cinemoonstudios.com?subject=New%20film%20enquiry">Start a film <span aria-hidden="true">↗</span></a>
-          </div>
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="hero-frame" data-cursor="PLAY">
+          <Image className="hero-media" src="/studio/hero-production.webp" alt="A film crew recording an on-set founder interview" fill priority loading="eager" sizes="(max-width: 700px) 67vw, 47vw" />
+          <div className="hero-shade" aria-hidden="true" />
+          <span className="frame-index">01 — 24</span>
+          <span className="frame-location">RAIPUR · CHHATTISGARH</span>
         </div>
-        <div className="hero-seal" aria-label="Cinemoon Studios">
-          <Image src="/studio/cinemoon-logo.jpg" alt="" width={72} height={72} sizes="72px" />
-          <span>Independent film studio</span>
+        <h1 className="hero-title" id="hero-title">
+          <span>Films that</span>
+          <span>make people</span>
+          <span>care.</span>
+        </h1>
+        <div className="hero-bottom">
+          <p>Short ads, founder documentaries and production-led social content—from the first line of the script to the final cut.</p>
+          <a href="#house-of-vision">Discover House of Vision <span aria-hidden="true">↓</span></a>
         </div>
-        <div className="hero-index" aria-hidden="true"><span>Raipur · Chhattisgarh</span><span>Stories in motion</span></div>
       </section>
 
-      <section className="studio-strip" aria-label="Cinemoon Studios specialisms">
-        <span data-reveal="fade">Short ads</span>
-        <span data-reveal="fade" data-d="1">Founder stories</span>
-        <span data-reveal="fade" data-d="2">Industrial films</span>
-        <span data-reveal="fade" data-d="3">Real estate films</span>
-      </section>
+      <div className="studio-strip" aria-label="Cinemoon Studios specialisms">
+        <span>Short ads</span><i>✦</i><span>Founder stories</span><i>✦</i><span>Industrial films</span><i>✦</i><span>Real estate films</span>
+      </div>
 
-      <section className="about section-shell" id="about">
-        <div className="section-label">
-          <span className="eyebrow">01 / A video-first studio</span>
-          <span className="hairline" data-reveal="line" />
-          <span className="timecode">00:00:12:04</span>
+      <section className="about section-pad" id="about">
+        <SectionRail index="01" label="A video-first studio" time="00:00:12:04" />
+        <div className="about-statement">
+          <h2>We tell stories.<br /><em>Everything else follows.</em></h2>
+          <p>Cinemoon is a Raipur-based creative production studio focused on moving-image work—built for screens, feeds and people.</p>
         </div>
-        <div className="about-heading editorial-heading">
-          <h2 data-reveal>We tell stories.<br /><em>Everything else follows.</em></h2>
-          <p data-reveal data-d="1">Cinemoon is a Raipur-based creative production studio focused on moving-image work—built for screens, feeds and people.</p>
-        </div>
-        <div className="about-editorial">
-          <figure className="image-panel about-image-left" data-reveal="mask">
-            <Image src="/studio/camera-portrait.webp" alt="A cinema camera framing an interview" fill sizes="(max-width: 700px) 100vw, 34vw" />
+        <div className="about-composition">
+          <figure className="media-frame about-tall" data-cursor="VIEW">
+            <Image src="/studio/camera-portrait.webp" alt="A cinema camera framing an interview" fill sizes="(max-width: 760px) 88vw, 31vw" />
             <figcaption>Stories, properly framed</figcaption>
           </figure>
           <div className="about-copy">
-            <span className="eyebrow gold-ink" data-reveal="fade">From thought to final frame</span>
-            <p data-reveal data-d="1">Strategy, scripts and serious production craft—under one roof.</p>
-            <p className="small-copy" data-reveal data-d="2">We develop the idea, write the story, plan the shoot and carry it through production and post. The result is not just more content. It is a film with a reason to exist.</p>
-            <a className="button button-navy" href="#services" data-reveal data-d="3">See what we make <span aria-hidden="true">↘</span></a>
+            <span className="kicker">From thought to final frame</span>
+            <h3>Strategy, scripts and serious production craft—under one roof.</h3>
+            <p>We develop the idea, write the story, plan the shoot and carry it through production and post. The result is not just more content. It is a film with a reason to exist.</p>
+            <a className="line-link" href="#services">See what we make <span>↘</span></a>
           </div>
-          <figure className="image-panel about-image-right" data-reveal="mask" data-d="2">
-            <Image src="/studio/production-team.webp" alt="A filmmaking team collaborating around a camera" fill sizes="(max-width: 700px) 100vw, 34vw" />
+          <figure className="media-frame about-wide" data-cursor="VIEW">
+            <Image src="/studio/production-team.webp" alt="A filmmaking team collaborating around a camera" fill sizes="(max-width: 760px) 88vw, 38vw" />
             <figcaption>Pre-production to post</figcaption>
           </figure>
         </div>
       </section>
 
-      <section className="intertitle grain" aria-label="Why Cinemoon tells founder stories">
-        <div className="intertitle-inner">
-          <span className="intertitle-tag" data-reveal="fade">The reason we roll</span>
-          <p className="it-1" data-reveal>Every brand has a story.</p>
-          <p className="it-2" data-reveal data-d="1">Most people only see the product.</p>
-          <p className="it-3" data-reveal data-d="2">We want to show the world <em>the person behind it.</em></p>
-          <p className="it-note" data-reveal data-d="3">The late nights, the doubts, the reason you started.</p>
+      <section className="manifesto" aria-label="Why Cinemoon tells founder stories">
+        <span className="kicker">The reason we roll</span>
+        <div className="manifesto-copy">
+          <p>Every brand has a story.</p>
+          <p>Most people only see the product.</p>
+          <p>We want to show the world <em>the person behind it.</em></p>
         </div>
+        <p className="manifesto-note">The late nights, the doubts, the reason you started.</p>
       </section>
 
-      <section className="vision-feature grain" id="house-of-vision">
-        <div className="vision-copy">
-          <span className="eyebrow gold-text" data-reveal="fade">A Cinemoon Studios original</span>
-          <h2 data-reveal>House of<br />Vision</h2>
-          <p className="vision-tagline" data-reveal data-d="1">Brand stories, told from zero to one.</p>
-          <p data-reveal data-d="2">Our founder-film series captures the origin, the struggle and the breakthrough behind ambitious local brands. One honest, cinematic story that gives people a reason to root for the brand—not just buy from it.</p>
-          <div className="vision-actions" data-reveal data-d="3">
-            <a className="button button-gold" href="#featured-story">Watch the first story <span aria-hidden="true">↘</span></a>
-            <a className="text-link hero-link" href="mailto:info@cinemoonstudios.com?subject=House%20of%20Vision%20enquiry">Tell your story <span aria-hidden="true">↗</span></a>
+      <section className="vision" id="house-of-vision">
+        <div className="vision-intro section-pad">
+          <div className="vision-title-block">
+            <span className="kicker">A Cinemoon Studios original</span>
+            <h2>House<br />of Vision</h2>
           </div>
-        </div>
-        <div className="vision-steps" aria-label="The five-act House of Vision story format">
-          <p className="vision-steps-label" data-reveal="fade">Every story, told in five acts</p>
-          {storyActs.map(([number, title, copy], index) => (
-            <div key={number} data-reveal data-d={String(Math.min(index, 4))}>
-              <span>{number}</span><strong>{title}</strong><p>{copy}</p>
+          <figure className="vision-portrait media-frame" data-cursor="VIEW">
+            <Image src="/studio/camera-portrait.webp" alt="Cinema camera filming an interview for House of Vision" fill sizes="(max-width: 760px) 60vw, 22vw" />
+          </figure>
+          <div className="vision-copy">
+            <h3>Brand stories, told from zero to one.</h3>
+            <p>Our founder-film series captures the origin, the struggle and the breakthrough behind ambitious local brands. One honest, cinematic story that gives people a reason to root for the brand—not just buy from it.</p>
+            <div className="vision-links">
+              <a className="line-link light" href="#featured-story">Watch the first story <span>↓</span></a>
+              <a className="line-link light" href="mailto:info@cinemoonstudios.com?subject=House%20of%20Vision%20enquiry">Tell your story <span>↗</span></a>
             </div>
-          ))}
-        </div>
-      </section>
-
-      <section className="featured-story section-shell" id="featured-story">
-        <div className="section-label">
-          <span className="eyebrow">02 / Featured founder story</span>
-          <span className="hairline" data-reveal="line" />
-          <span className="timecode">00:03:26:11</span>
-        </div>
-        <div className="story-grid">
-          <div className="story-copy">
-            <span className="story-episode" data-reveal="fade">House of Vision · Episode 01</span>
-            <h2 data-reveal>Shawarmawala</h2>
-            <p className="story-lead" data-reveal data-d="1">How Sikandar turned one failed restaurant into a fast-growing Raipur food brand.</p>
-            <p data-reveal data-d="2">After The Biryani Factory closed in Bangalore, he spotted an open market back home, backed the idea with his remaining capital and built Shawarmawala from a single cart to 5–6 locations in about 18 months.</p>
-            <dl className="story-facts" data-reveal data-d="3">
-              <div><dt>Founder</dt><dd>Sikandar</dd></div>
-              <div><dt>Built in</dt><dd>Raipur, CG</dd></div>
-              <div><dt>Runtime</dt><dd>5 min 34 sec</dd></div>
-            </dl>
-            <a className="text-link dark-link" href="https://www.youtube.com/watch?v=2tEyh64lmk8" target="_blank" rel="noreferrer" data-reveal data-d="4">Open on YouTube <span aria-hidden="true">↗</span></a>
           </div>
-          <div className="story-player" data-reveal="mask" data-d="1">
-            <iframe
-              src="https://www.youtube-nocookie.com/embed/2tEyh64lmk8?rel=0"
-              title="Shawarmawala Brand Story by Cinemoon Studios"
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
+        </div>
+        <div className="acts section-pad" aria-label="The five-act House of Vision story format">
+          <p className="kicker">Every story, told in five acts</p>
+          <div className="acts-list">
+            {storyActs.map(([number, title, copy]) => (
+              <div className="act" key={number}>
+                <span>{number}</span><strong>{title}</strong><p>{copy}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      <section className="content-system section-shell grain" aria-labelledby="content-system-title">
-        <div className="content-system-heading">
-          <span className="eyebrow gold-ink" data-reveal="fade">One shoot · A full content library</span>
-          <h2 id="content-system-title" data-reveal>More than a video.<br /><em>A piece of brand IP.</em></h2>
+      <section className="featured-story section-pad" id="featured-story">
+        <SectionRail index="02" label="Featured founder story" time="00:03:26:11" />
+        <div className="story-heading">
+          <div>
+            <span className="kicker">House of Vision · Episode 01</span>
+            <h2>Shawarmawala</h2>
+          </div>
+          <p>How Sikandar turned one failed restaurant into a fast-growing Raipur food brand.</p>
         </div>
-        <div className="deliverable-grid">
-          {deliverables.map(([number, title, copy], index) => (
-            <article key={number} data-reveal data-d={String(index)}>
+        <div className="story-player" data-cursor="PLAY">
+          <ProjectPlayer />
+        </div>
+        <div className="story-bottom">
+          <p>After The Biryani Factory closed in Bangalore, he spotted an open market back home, backed the idea with his remaining capital and built Shawarmawala from a single cart to 5–6 locations in about 18 months.</p>
+          <dl>
+            <div><dt>Founder</dt><dd>Sikandar</dd></div>
+            <div><dt>Built in</dt><dd>Raipur, CG</dd></div>
+            <div><dt>Runtime</dt><dd>5 min 34 sec</dd></div>
+          </dl>
+          <a className="line-link" href="https://www.youtube.com/watch?v=2tEyh64lmk8" target="_blank" rel="noreferrer">Open on YouTube <span>↗</span></a>
+        </div>
+      </section>
+
+      <section className="content-system section-pad">
+        <div className="content-title">
+          <span className="kicker">One shoot · A full content library</span>
+          <h2>More than a video.<br /><em>A piece of brand IP.</em></h2>
+        </div>
+        <div className="deliverables">
+          {deliverables.map(([number, title, copy]) => (
+            <article key={number}>
               <span>{number}</span><h3>{title}</h3><p>{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="work section-shell" id="work">
-        <div className="section-label">
-          <span className="eyebrow">03 / What we film</span>
-          <span className="hairline" data-reveal="line" />
-          <span className="timecode">00:05:41:07</span>
-        </div>
+      <section className="work section-pad" id="work">
+        <SectionRail index="03" label="What we film" time="00:05:41:07" />
         <div className="work-heading">
-          <h2 data-reveal>Every brief needs<br /><em>its own kind of film.</em></h2>
-          <p data-reveal data-d="1">From 15-second ads to founder documentaries and large-scale location shoots, the format follows the story and the screen.</p>
+          <h2>Every brief needs<br /><em>its own kind of film.</em></h2>
+          <p>From 15-second ads to founder documentaries and large-scale location shoots, the format follows the story and the screen.</p>
         </div>
-        <div className="capability-grid">
+        <div className="formats">
           {capabilities.map((item, index) => (
-            <article className="capability-card" key={item.title} data-reveal="mask" data-d={String(index)}>
-              <div className="capability-image">
-                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 33vw" />
-                <span className="capability-number">{String(index + 1).padStart(2, "0")}</span>
-                <div className="capability-overlay"><p>{item.label}</p><h3>{item.title}</h3></div>
+            <article className={`format ${item.className}`} key={item.title} data-cursor="VIEW">
+              <figure>
+                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 75vw" />
+                <span>{String(index + 1).padStart(2, "0")}</span>
+              </figure>
+              <div className="format-copy">
+                <p>{item.label}</p><h3>{item.title}</h3><p>{item.description}</p>
               </div>
-              <p className="capability-description">{item.description}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="services grain" id="services">
-        <div className="services-intro section-shell">
-          <div className="section-label">
-            <span className="eyebrow gold-text">04 / Services</span>
-            <span className="hairline light-line" data-reveal="line" />
-            <span className="timecode">00:07:19:23</span>
-          </div>
-          <div className="services-heading">
-            <h2 data-reveal>From first thought<br /><em>to final cut.</em></h2>
-            <p data-reveal data-d="1">Focused services for brands that need a story, not a content checklist.</p>
-          </div>
+      <section className="services" id="services">
+        <div className="services-head section-pad">
+          <SectionRail index="04" label="Services" time="00:07:19:23" />
+          <h2>From first thought<br /><em>to final cut.</em></h2>
+          <p>Focused services for brands that need a story, not a content checklist.</p>
         </div>
         <div className="service-list">
-          {services.map((service, index) => (
-            <details className="service-row" key={service.number} data-reveal="fade" data-d={String(index)}>
-              <summary><span className="service-number">{service.number}</span><span className="service-name">{service.name}</span><span className="service-toggle" aria-hidden="true">+</span></summary>
+          {services.map((service) => (
+            <details className="service-row" key={service.number}>
+              <summary>
+                <span>{service.number}</span><strong>{service.name}</strong><i aria-hidden="true">+</i>
+              </summary>
               <p>{service.description}</p>
             </details>
           ))}
         </div>
       </section>
 
-      <section className="process section-shell">
-        <div className="section-label">
-          <span className="eyebrow">05 / How we work</span>
-          <span className="hairline" data-reveal="line" />
-          <span className="timecode">00:09:02:16</span>
-        </div>
+      <section className="process section-pad">
+        <SectionRail index="05" label="How we work" time="00:09:02:16" />
         <div className="process-heading">
-          <h2 data-reveal>From first call<br /><em>to final cut.</em></h2>
-          <p data-reveal data-d="1">A clear four-step production process keeps the story honest and every moving part aligned.</p>
+          <h2>From first call<br /><em>to final cut.</em></h2>
+          <p>A clear four-step production process keeps the story honest and every moving part aligned.</p>
         </div>
-        <div className="process-grid">
-          {process.map(([number, title, copy], index) => (
-            <article className="process-card" key={number} data-reveal data-d={String(index)}>
+        <div className="process-list">
+          {process.map(([number, title, copy]) => (
+            <article key={number}>
               <span>{number}</span><h3>{title}</h3><p>{copy}</p>
             </article>
           ))}
         </div>
       </section>
 
-      <section className="founder grain">
-        <div className="founder-brand" aria-label="Cinemoon Studios logo">
-          <span className="founder-brand-label">Independent film studio</span>
-          <Image className="founder-logo" src="/studio/cinemoon-logo.jpg" alt="Official Cinemoon Studios logo" width={420} height={420} sizes="(max-width: 700px) 28vw, 11vw" />
-          <div className="founder-wordmark"><strong>CINEMOON</strong><span>STUDIOS</span></div>
-          <span className="founder-brand-line" aria-hidden="true" />
+      <section className="founder">
+        <div className="founder-visual">
+          <Image src="/studio/cinemoon-logo.jpg" alt="Official Cinemoon Studios logo" width={420} height={420} sizes="(max-width: 760px) 44vw, 22vw" />
+          <span>CINEMOON</span>
         </div>
-        <div className="founder-copy">
-          <span className="eyebrow gold-text" data-reveal="fade">The vision behind Cinemoon</span>
-          <blockquote data-reveal>“A space that fosters exceptional storytelling and empowers talented individuals within our state.”</blockquote>
-          <div data-reveal data-d="2"><strong>Aishwarya Sharma</strong><span>Creative Director &amp; Producer</span></div>
+        <div className="founder-quote">
+          <span className="kicker">The vision behind Cinemoon</span>
+          <blockquote>“A space that fosters exceptional storytelling and empowers talented individuals within our state.”</blockquote>
+          <div><strong>Aishwarya Sharma</strong><span>Creative Director &amp; Producer</span></div>
         </div>
       </section>
 
-      <section className="team section-shell" aria-labelledby="team-title">
-        <div className="section-label">
-          <span className="eyebrow">06 / The team</span>
-          <span className="hairline" data-reveal="line" />
-          <span className="timecode">00:10:48:05</span>
-        </div>
+      <section className="team section-pad" aria-labelledby="team-title">
+        <SectionRail index="06" label="The team" time="00:10:48:05" />
         <div className="team-heading">
-          <h2 id="team-title" data-reveal>A collective of<br /><em>makers.</em></h2>
-          <p data-reveal data-d="1">Directors, producers, cinematographers and visual artists working as one crew.</p>
+          <h2 id="team-title">A collective<br />of <em>makers.</em></h2>
+          <p>Directors, producers, cinematographers and visual artists working as one crew.</p>
         </div>
         <div className="team-list">
           {team.map(([name, role], index) => (
-            <div className="team-row" key={name} data-reveal data-d={String(index)}>
+            <div className="team-row" key={name}>
               <span>{String(index + 1).padStart(2, "0")}</span><strong>{name}</strong><p>{role}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section className="contact section-shell" id="contact">
-        <div className="contact-copy">
-          <span className="eyebrow" data-reveal="fade">07 / Start a conversation</span>
-          <h2 data-reveal>Your story is worth<br /><em>more than a scroll.</em></h2>
-        </div>
-        <div className="contact-action">
-          <p data-reveal data-d="1">Tell us what you are building and where the film needs to work. We will help shape the right story and production approach.</p>
-          <a className="button button-navy" href="mailto:info@cinemoonstudios.com?subject=New%20film%20enquiry" data-reveal data-d="2">info@cinemoonstudios.com <span aria-hidden="true">↗</span></a>
-          <a className="contact-phone" href="tel:+917773839884" data-reveal data-d="3">+91 77738 39884</a>
+      <section className="contact section-pad" id="contact">
+        <span className="kicker">07 / Start a conversation</span>
+        <h2>Your story is worth<br /><em>more than a scroll.</em></h2>
+        <div className="contact-bottom">
+          <p>Tell us what you are building and where the film needs to work. We will help shape the right story and production approach.</p>
+          <a href="mailto:info@cinemoonstudios.com?subject=New%20film%20enquiry">info@cinemoonstudios.com <span>↗</span></a>
+          <a href="tel:+917773839884">+91 77738 39884</a>
         </div>
       </section>
 
-      <footer className="footer">
-        <div className="footer-main">
-          <div className="footer-brand"><Image src="/studio/cinemoon-logo.jpg" alt="" width={78} height={78} sizes="78px" /><a className="footer-wordmark" href="#top">CINEMOON</a></div>
+      <footer className="footer section-pad">
+        <div className="footer-top">
+          <a className="footer-wordmark" href="#top">CINEMOON</a>
           <p>Video production &amp; brand storytelling.<br />From Raipur, for stories worth remembering.</p>
         </div>
-        <div className="footer-links">
+        <div className="footer-nav">
           <div><span>Explore</span><a href="#house-of-vision">House of Vision</a><a href="#work">Work</a><a href="#services">Services</a></div>
           <div><span>Connect</span><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href="mailto:info@cinemoonstudios.com">Email ↗</a><a href="tel:+917773839884">Call ↗</a></div>
         </div>
