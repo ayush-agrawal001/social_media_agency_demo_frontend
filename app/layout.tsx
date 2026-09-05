@@ -1,12 +1,11 @@
 import type { Metadata } from "next";
-import { Archivo_Black, Manrope } from "next/font/google";
+import { Geist, Manrope } from "next/font/google";
 import "./globals.css";
 import { getSiteOrigin } from "./site-origin";
 
-const display = Archivo_Black({
+const display = Geist({
   variable: "--font-display",
   subsets: ["latin"],
-  weight: "400",
 });
 
 const sans = Manrope({
@@ -16,7 +15,7 @@ const sans = Manrope({
 
 export async function generateMetadata(): Promise<Metadata> {
   const origin = await getSiteOrigin();
-  const image = `${origin}/og.png`;
+  const image = `${origin}/og-minimal.png`;
 
   return {
     metadataBase: new URL(origin),
@@ -63,7 +62,7 @@ export default async function RootLayout({
     name: "Cinemoon Studios",
     url: origin,
     logo: `${origin}/studio/cinemoon-logo.jpg`,
-    image: `${origin}/og.png`,
+    image: `${origin}/og-minimal.png`,
     description: "A Raipur-based video production studio creating short ads, founder documentaries, industrial films, real estate films and cinematic brand stories.",
     email: "info@cinemoonstudios.com",
     telephone: "+91 77738 39884",

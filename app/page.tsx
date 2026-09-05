@@ -103,8 +103,6 @@ export default function Home() {
   return (
     <main id="top">
       <StudioInteractions />
-      <div className="film-scrubber" aria-hidden="true" />
-      <div className="project-cursor" aria-hidden="true">VIEW</div>
 
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Cinemoon Studios home">
@@ -130,7 +128,7 @@ export default function Home() {
       </header>
 
       <section className="hero" aria-labelledby="hero-title">
-        <div className="hero-frame" data-cursor="PLAY">
+        <div className="hero-frame">
           <Image className="hero-media" src="/studio/hero-production.webp" alt="A film crew recording an on-set founder interview" fill priority loading="eager" sizes="(max-width: 700px) 67vw, 47vw" />
           <div className="hero-shade" aria-hidden="true" />
           <span className="frame-index">01 — 24</span>
@@ -158,7 +156,7 @@ export default function Home() {
           <p>Cinemoon is a Raipur-based creative production studio focused on moving-image work—built for screens, feeds and people.</p>
         </div>
         <div className="about-composition">
-          <figure className="media-frame about-tall" data-cursor="VIEW">
+          <figure className="media-frame about-tall">
             <Image src="/studio/camera-portrait.webp" alt="A cinema camera framing an interview" fill sizes="(max-width: 760px) 88vw, 31vw" />
             <figcaption>Stories, properly framed</figcaption>
           </figure>
@@ -168,7 +166,7 @@ export default function Home() {
             <p>We develop the idea, write the story, plan the shoot and carry it through production and post. The result is not just more content. It is a film with a reason to exist.</p>
             <a className="line-link" href="#services">See what we make <span>↘</span></a>
           </div>
-          <figure className="media-frame about-wide" data-cursor="VIEW">
+          <figure className="media-frame about-wide">
             <Image src="/studio/production-team.webp" alt="A filmmaking team collaborating around a camera" fill sizes="(max-width: 760px) 88vw, 38vw" />
             <figcaption>Pre-production to post</figcaption>
           </figure>
@@ -191,7 +189,7 @@ export default function Home() {
             <span className="kicker">A Cinemoon Studios original</span>
             <h2>House<br />of Vision</h2>
           </div>
-          <figure className="vision-portrait media-frame" data-cursor="VIEW">
+          <figure className="vision-portrait media-frame">
             <Image src="/studio/camera-portrait.webp" alt="Cinema camera filming an interview for House of Vision" fill sizes="(max-width: 760px) 60vw, 22vw" />
           </figure>
           <div className="vision-copy">
@@ -224,7 +222,7 @@ export default function Home() {
           </div>
           <p>How Sikandar turned one failed restaurant into a fast-growing Raipur food brand.</p>
         </div>
-        <div className="story-player" data-cursor="PLAY">
+        <div className="story-player">
           <ProjectPlayer />
         </div>
         <div className="story-bottom">
@@ -260,7 +258,7 @@ export default function Home() {
         </div>
         <div className="formats">
           {capabilities.map((item, index) => (
-            <article className={`format ${item.className}`} key={item.title} data-cursor="VIEW">
+            <article className={`format ${item.className}`} key={item.title}>
               <figure>
                 <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 75vw" />
                 <span>{String(index + 1).padStart(2, "0")}</span>
