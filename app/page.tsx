@@ -5,57 +5,49 @@ import StudioInteractions from "./studio-interactions";
 const services = [
   {
     number: "01",
-    name: "Short ads",
+    name: "Ad films",
+    label: "Concept · Script · Production",
     description:
-      "Social-first ad films with a real idea behind them—from scripting and casting to production, edit, sound and final platform cutdowns.",
+      "Short, promotional and campaign films built around a strong idea—from scripting and casting to the shoot, edit, sound and final cutdowns.",
+    image: "/studio/ad-film-location.webp",
+    alt: "Cinemoon crew reviewing footage during an outdoor film production",
   },
   {
     number: "02",
-    name: "Brand stories",
+    name: "Product shoots",
+    label: "Photography · Video · Styling",
     description:
-      "Founder films and documentary-led brand stories, including our House of Vision format: one cinematic feature plus a library of short-form content.",
+      "Product photography and video that gives food, packaging and physical products a distinctive visual world across campaigns and commerce.",
+    image: "/studio/product-packaging.webp",
+    alt: "Colourful food packaging photographed by Cinemoon Studios",
   },
   {
     number: "03",
-    name: "Industrial films",
+    name: "Social content",
+    label: "Reels · Promos · Creative systems",
     description:
-      "Clear, cinematic films for factories, infrastructure, corporate teams and processes—planned around real locations, people and operations.",
+      "Platform-aware social films and creative series designed to stop the scroll while still feeling unmistakably like your brand.",
+    image: "/studio/social-food-campaign.webp",
+    alt: "Two sandwiches styled against a red background for a social campaign",
   },
   {
     number: "04",
-    name: "Real estate films",
+    name: "Brand stories",
+    label: "Founder films · Documentary",
     description:
-      "Property, hospitality and destination films that bring spaces to life through considered direction, movement, light and social-ready edits.",
-  },
-];
-
-const capabilities = [
-  {
-    title: "Short ads",
-    label: "Concept · Script · Film",
-    description:
-      "Tightly written, platform-aware films designed to earn attention in the first seconds and stay memorable after the scroll.",
-    image: "/studio/camera-detail.webp",
-    alt: "Cinema camera being prepared by a production crew",
-    className: "format-wide",
+      "Human, documentary-led films about the spark, struggle, pivot, rise and vision behind a business—including our House of Vision format.",
+    image: "/studio/brand-story-camera.webp",
+    alt: "A Cinemoon camera filming a product and founder-led story",
+    href: "#house-of-vision",
   },
   {
-    title: "Founder stories",
-    label: "Interview · Documentary",
+    number: "05",
+    name: "Location films",
+    label: "Industrial · Real estate · Interiors",
     description:
-      "Human stories shaped around the spark, struggle, pivot, rise and vision behind a founder-led business.",
-    image: "/studio/hero-production.webp",
-    alt: "A founder being interviewed by a film crew",
-    className: "format-portrait",
-  },
-  {
-    title: "Location films",
-    label: "Industrial · Real estate",
-    description:
-      "On-location production that makes people, processes and spaces feel as considered on screen as they are in real life.",
-    image: "/studio/production-team.webp",
-    alt: "A production team operating a cinema camera on location",
-    className: "format-bleed",
+      "Considered on-location films that make real people, processes and spaces feel as compelling on screen as they do in person.",
+    image: "/studio/interior-location-shoot.webp",
+    alt: "Cinemoon crew preparing an interior location shoot",
   },
 ];
 
@@ -81,12 +73,6 @@ const process = [
   ["04", "Edit & delivery", "We craft the final film, sound and complete set of platform-ready cutdowns."],
 ];
 
-const team = [
-  ["Hardik Sahu", "Video producer · Filmmaker · Photographer"],
-  ["Swapnil Mathew", "Product photographer · Cinematographer · Visual artist"],
-  ["Sanjay Jain", "Filmmaker · Director · Producer"],
-];
-
 const instagramUrl = "https://www.instagram.com/cinemoon.studios?igsi=MXdnZTF0enpqN2Jn";
 
 function SectionRail({ index, label, time }: { index: string; label: string; time: string }) {
@@ -106,20 +92,21 @@ export default function Home() {
 
       <header className="site-header">
         <a className="wordmark" href="#top" aria-label="Cinemoon Studios home">
-          <Image src="/studio/cinemoon-logo.jpg" alt="" width={40} height={40} sizes="40px" priority />
+          <Image src="/studio/cinemoon-logo.jpg" alt="" width={40} height={40} sizes="40px" />
           <span><strong>CINEMOON</strong><small>STUDIOS / RAIPUR</small></span>
         </a>
         <nav className="desktop-nav" aria-label="Main navigation">
-          <a href="#work">Work</a>
           <a href="#services">Services</a>
+          <a href="#house-of-vision">House of Vision</a>
+          <a href="#work">Work</a>
           <a href="#about">About</a>
-          <a href="#contact">Contact</a>
         </nav>
         <details className="mobile-menu">
           <summary>Menu</summary>
           <nav aria-label="Mobile navigation">
-            <a href="#work">Work</a>
             <a href="#services">Services</a>
+            <a href="#house-of-vision">House of Vision</a>
+            <a href="#work">Work</a>
             <a href="#about">About</a>
             <a href="#contact">Contact</a>
           </nav>
@@ -129,74 +116,90 @@ export default function Home() {
 
       <section className="hero" aria-labelledby="hero-title">
         <div className="hero-frame">
-          <Image className="hero-media" src="/studio/hero-production.webp" alt="A film crew recording an on-set founder interview" fill priority loading="eager" sizes="(max-width: 700px) 67vw, 47vw" />
+          <Image className="hero-media" src="/studio/hero-client-shoot.webp" alt="Cinemoon camera filming a founder during a food shoot" fill preload sizes="(max-width: 700px) 100vw, 47vw" />
           <div className="hero-shade" aria-hidden="true" />
           <span className="frame-index">01 — 24</span>
           <span className="frame-location">RAIPUR · CHHATTISGARH</span>
         </div>
-        <h1 className="hero-title" id="hero-title">
-          <span>Films that</span>
-          <span>make people</span>
-          <span>care.</span>
+        <h1
+          className="hero-title"
+          id="hero-title"
+          aria-label="Films that make people care."
+        >
+          <span className="hero-title-line" aria-hidden="true">
+            Films tha<span className="hero-build hero-build--horizontal">
+              t
+              <span className="hero-builder hero-builder--horizontal">
+                <span className="hero-builder-cable" />
+                <span className="hero-builder-head" />
+                <span className="hero-builder-jaw hero-builder-jaw--one" />
+                <span className="hero-builder-jaw hero-builder-jaw--two" />
+              </span>
+            </span>
+          </span>
+          <span className="hero-title-line hero-title-line--middle" aria-hidden="true">
+            make people
+          </span>
+          <span className="hero-title-line hero-title-line--accent" aria-hidden="true">
+            care<span className="hero-build hero-build--vertical">
+              .
+              <span className="hero-builder hero-builder--vertical">
+                <span className="hero-builder-cable" />
+                <span className="hero-builder-head" />
+                <span className="hero-builder-jaw hero-builder-jaw--one" />
+                <span className="hero-builder-jaw hero-builder-jaw--two" />
+              </span>
+            </span>
+          </span>
         </h1>
         <div className="hero-bottom">
-          <p>Short ads, founder documentaries and production-led social content—from the first line of the script to the final cut.</p>
-          <a href="#house-of-vision">Discover House of Vision <span aria-hidden="true">↓</span></a>
+          <p>Ad films, product shoots, founder documentaries and social content—from the first line of the script to the final cut.</p>
+          <a href="#services">Explore our services <span aria-hidden="true">↓</span></a>
         </div>
       </section>
 
       <div className="studio-strip" aria-label="Cinemoon Studios specialisms">
-        <span>Short ads</span><i>✦</i><span>Founder stories</span><i>✦</i><span>Industrial films</span><i>✦</i><span>Real estate films</span>
+        <span>Ad films</span><i>✦</i><span>Product shoots</span><i>✦</i><span>Social content</span><i>✦</i><span>Brand stories</span><i>✦</i><span>Location films</span>
       </div>
 
-      <section className="about section-pad" id="about">
-        <SectionRail index="01" label="A video-first studio" time="00:00:12:04" />
-        <div className="about-statement">
-          <h2>We tell stories.<br /><em>Everything else follows.</em></h2>
-          <p>Cinemoon is a Raipur-based creative production studio focused on moving-image work—built for screens, feeds and people.</p>
+      <section className="services" id="services">
+        <div className="services-head section-pad">
+          <SectionRail index="01" label="Services" time="00:01:18:09" />
+          <h2>Everything needed<br /><em>to make it move.</em></h2>
+          <p>Strategy, production and post under one roof. Every core service is laid out here—no hidden menu, no generic content package.</p>
         </div>
-        <div className="about-composition">
-          <figure className="media-frame about-tall">
-            <Image src="/studio/camera-portrait.webp" alt="A cinema camera framing an interview" fill sizes="(max-width: 760px) 88vw, 31vw" />
-            <figcaption>Stories, properly framed</figcaption>
-          </figure>
-          <div className="about-copy">
-            <span className="kicker">From thought to final frame</span>
-            <h3>Strategy, scripts and serious production craft—under one roof.</h3>
-            <p>We develop the idea, write the story, plan the shoot and carry it through production and post. The result is not just more content. It is a film with a reason to exist.</p>
-            <a className="line-link" href="#services">See what we make <span>↘</span></a>
-          </div>
-          <figure className="media-frame about-wide">
-            <Image src="/studio/production-team.webp" alt="A filmmaking team collaborating around a camera" fill sizes="(max-width: 760px) 88vw, 38vw" />
-            <figcaption>Pre-production to post</figcaption>
-          </figure>
+        <div className="service-grid section-pad">
+          {services.map((service) => (
+            <article className="service-card" key={service.number}>
+              <figure>
+                <Image src={service.image} alt={service.alt} fill sizes="(max-width: 700px) 100vw, 50vw" />
+                <span>{service.number}</span>
+              </figure>
+              <div className="service-card-copy">
+                <p>{service.label}</p>
+                <h3>{service.name}</h3>
+                <p>{service.description}</p>
+                {service.href ? <a className="line-link" href={service.href}>Discover House of Vision <span>↘</span></a> : null}
+              </div>
+            </article>
+          ))}
         </div>
-      </section>
-
-      <section className="manifesto" aria-label="Why Cinemoon tells founder stories">
-        <span className="kicker">The reason we roll</span>
-        <div className="manifesto-copy">
-          <p>Every brand has a story.</p>
-          <p>Most people only see the product.</p>
-          <p>We want to show the world <em>the person behind it.</em></p>
-        </div>
-        <p className="manifesto-note">The late nights, the doubts, the reason you started.</p>
       </section>
 
       <section className="vision" id="house-of-vision">
         <div className="vision-intro section-pad">
           <div className="vision-title-block">
-            <span className="kicker">A Cinemoon Studios original</span>
+            <span className="kicker">Brand stories · A Cinemoon Studios original</span>
             <h2>House<br />of Vision</h2>
           </div>
           <figure className="vision-portrait media-frame">
-            <Image src="/studio/camera-portrait.webp" alt="Cinema camera filming an interview for House of Vision" fill sizes="(max-width: 760px) 60vw, 22vw" />
+            <Image src="/studio/camera-gimbal.webp" alt="Cinemoon camera rig prepared for a House of Vision shoot" fill sizes="(max-width: 760px) 76vw, 22vw" />
           </figure>
           <div className="vision-copy">
             <h3>Brand stories, told from zero to one.</h3>
             <p>Our founder-film series captures the origin, the struggle and the breakthrough behind ambitious local brands. One honest, cinematic story that gives people a reason to root for the brand—not just buy from it.</p>
             <div className="vision-links">
-              <a className="line-link light" href="#featured-story">Watch the first story <span>↓</span></a>
+              <a className="line-link light" href="#work">Watch the first story <span>↓</span></a>
               <a className="line-link light" href="mailto:info@cinemoonstudios.com?subject=House%20of%20Vision%20enquiry">Tell your story <span>↗</span></a>
             </div>
           </div>
@@ -213,7 +216,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="featured-story section-pad" id="featured-story">
+      <section className="featured-story section-pad" id="work">
         <SectionRail index="02" label="Featured founder story" time="00:03:26:11" />
         <div className="story-heading">
           <div>
@@ -250,47 +253,42 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="work section-pad" id="work">
-        <SectionRail index="03" label="What we film" time="00:05:41:07" />
-        <div className="work-heading">
-          <h2>Every brief needs<br /><em>its own kind of film.</em></h2>
-          <p>From 15-second ads to founder documentaries and large-scale location shoots, the format follows the story and the screen.</p>
+      <section className="about section-pad" id="about">
+        <SectionRail index="03" label="A video-first studio" time="00:06:14:04" />
+        <div className="about-statement">
+          <h2>We tell stories.<br /><em>Everything else follows.</em></h2>
+          <p>Cinemoon is a Raipur-based creative production studio focused on moving-image work—built for screens, feeds and people.</p>
         </div>
-        <div className="formats">
-          {capabilities.map((item, index) => (
-            <article className={`format ${item.className}`} key={item.title}>
-              <figure>
-                <Image src={item.image} alt={item.alt} fill sizes="(max-width: 760px) 100vw, 75vw" />
-                <span>{String(index + 1).padStart(2, "0")}</span>
-              </figure>
-              <div className="format-copy">
-                <p>{item.label}</p><h3>{item.title}</h3><p>{item.description}</p>
-              </div>
-            </article>
-          ))}
+        <div className="about-composition">
+          <figure className="media-frame about-tall">
+            <Image src="/studio/edit-suite.webp" alt="Cinemoon visual identity being refined in post-production" fill sizes="(max-width: 760px) 84vw, 31vw" />
+            <figcaption>Ideas refined in post</figcaption>
+          </figure>
+          <div className="about-copy">
+            <span className="kicker">From thought to final frame</span>
+            <h3>Strategy, scripts and serious production craft—under one roof.</h3>
+            <p>We develop the idea, write the story, plan the shoot and carry it through production and post. The result is not just more content. It is a film with a reason to exist.</p>
+            <a className="line-link" href="#services">See every service <span>↖</span></a>
+          </div>
+          <figure className="media-frame about-wide">
+            <Image src="/studio/shoot-planning.webp" alt="A laptop and shot-planning notes used during pre-production" fill sizes="(max-width: 760px) 76vw, 38vw" />
+            <figcaption>Planning before the camera rolls</figcaption>
+          </figure>
         </div>
       </section>
 
-      <section className="services" id="services">
-        <div className="services-head section-pad">
-          <SectionRail index="04" label="Services" time="00:07:19:23" />
-          <h2>From first thought<br /><em>to final cut.</em></h2>
-          <p>Focused services for brands that need a story, not a content checklist.</p>
+      <section className="manifesto" aria-label="Why Cinemoon tells founder stories">
+        <span className="kicker">The reason we roll</span>
+        <div className="manifesto-copy">
+          <p>Every brand has a story.</p>
+          <p>Most people only see the product.</p>
+          <p>We show them <em>why it matters.</em></p>
         </div>
-        <div className="service-list">
-          {services.map((service) => (
-            <details className="service-row" key={service.number}>
-              <summary>
-                <span>{service.number}</span><strong>{service.name}</strong><i aria-hidden="true">+</i>
-              </summary>
-              <p>{service.description}</p>
-            </details>
-          ))}
-        </div>
+        <p className="manifesto-note">The idea, the people, the hard parts and the reason you kept going.</p>
       </section>
 
       <section className="process section-pad">
-        <SectionRail index="05" label="How we work" time="00:09:02:16" />
+        <SectionRail index="04" label="How we work" time="00:08:42:16" />
         <div className="process-heading">
           <h2>From first call<br /><em>to final cut.</em></h2>
           <p>A clear four-step production process keeps the story honest and every moving part aligned.</p>
@@ -316,23 +314,8 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="team section-pad" aria-labelledby="team-title">
-        <SectionRail index="06" label="The team" time="00:10:48:05" />
-        <div className="team-heading">
-          <h2 id="team-title">A collective<br />of <em>makers.</em></h2>
-          <p>Directors, producers, cinematographers and visual artists working as one crew.</p>
-        </div>
-        <div className="team-list">
-          {team.map(([name, role], index) => (
-            <div className="team-row" key={name}>
-              <span>{String(index + 1).padStart(2, "0")}</span><strong>{name}</strong><p>{role}</p>
-            </div>
-          ))}
-        </div>
-      </section>
-
       <section className="contact section-pad" id="contact">
-        <span className="kicker">07 / Start a conversation</span>
+        <span className="kicker">05 / Start a conversation</span>
         <h2>Your story is worth<br /><em>more than a scroll.</em></h2>
         <div className="contact-bottom">
           <p>Tell us what you are building and where the film needs to work. We will help shape the right story and production approach.</p>
@@ -347,7 +330,7 @@ export default function Home() {
           <p>Video production &amp; brand storytelling.<br />From Raipur, for stories worth remembering.</p>
         </div>
         <div className="footer-nav">
-          <div><span>Explore</span><a href="#house-of-vision">House of Vision</a><a href="#work">Work</a><a href="#services">Services</a></div>
+          <div><span>Explore</span><a href="#services">Services</a><a href="#house-of-vision">House of Vision</a><a href="#work">Featured work</a></div>
           <div><span>Connect</span><a href={instagramUrl} target="_blank" rel="noreferrer">Instagram ↗</a><a href="mailto:info@cinemoonstudios.com">Email ↗</a><a href="tel:+917773839884">Call ↗</a></div>
         </div>
         <div className="footer-bottom"><span>© 2026 Cinemoon Studios</span><span>Raipur, Chhattisgarh</span><a href="#top">Back to top ↑</a></div>

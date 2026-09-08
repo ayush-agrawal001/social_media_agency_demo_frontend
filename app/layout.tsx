@@ -15,14 +15,14 @@ const sans = Manrope({
 
 export async function generateMetadata(): Promise<Metadata> {
   const origin = await getSiteOrigin();
-  const image = `${origin}/og-minimal.png`;
+  const image = `${origin}/og-client.png`;
 
   return {
     metadataBase: new URL(origin),
     title: "Cinemoon Studios | Video Production & Brand Storytelling",
-    description: "Raipur-based video production studio creating short ads, founder documentaries, industrial films, real estate films and House of Vision brand stories.",
+    description: "Raipur-based production studio creating ad films, product shoots, social content, location films and House of Vision brand stories.",
     alternates: { canonical: "/" },
-    keywords: ["Cinemoon Studios", "video production", "brand storytelling", "founder documentary", "short ad films", "industrial films", "real estate films", "House of Vision", "Raipur production house"],
+    keywords: ["Cinemoon Studios", "video production", "ad films", "product shoots", "social content", "brand storytelling", "founder documentary", "industrial films", "real estate films", "House of Vision", "Raipur production house"],
     authors: [{ name: "Cinemoon Studios" }],
     creator: "Cinemoon Studios",
     publisher: "Cinemoon Studios",
@@ -34,7 +34,7 @@ export async function generateMetadata(): Promise<Metadata> {
     icons: { icon: "/studio/cinemoon-logo.jpg", shortcut: "/studio/cinemoon-logo.jpg", apple: "/studio/cinemoon-logo.jpg" },
     openGraph: {
       title: "Cinemoon Studios | Films That Make People Care",
-      description: "Short ads, founder documentaries and cinematic brand stories from Raipur.",
+      description: "Ad films, product shoots, social content and cinematic brand stories from Raipur.",
       url: "/",
       siteName: "Cinemoon Studios",
       locale: "en_IN",
@@ -44,7 +44,7 @@ export async function generateMetadata(): Promise<Metadata> {
     twitter: {
       card: "summary_large_image",
       title: "Cinemoon Studios | Films That Make People Care",
-      description: "Short ads, founder documentaries and cinematic brand stories from Raipur.",
+      description: "Ad films, product shoots, social content and cinematic brand stories from Raipur.",
       images: [image],
     },
   };
@@ -62,14 +62,14 @@ export default async function RootLayout({
     name: "Cinemoon Studios",
     url: origin,
     logo: `${origin}/studio/cinemoon-logo.jpg`,
-    image: `${origin}/og-minimal.png`,
-    description: "A Raipur-based video production studio creating short ads, founder documentaries, industrial films, real estate films and cinematic brand stories.",
+    image: `${origin}/og-client.png`,
+    description: "A Raipur-based production studio creating ad films, product shoots, social content, location films and cinematic brand stories.",
     email: "info@cinemoonstudios.com",
     telephone: "+91 77738 39884",
     areaServed: "India",
     founder: { "@type": "Person", name: "Aishwarya Sharma" },
     sameAs: ["https://www.instagram.com/cinemoon.studios"],
-    knowsAbout: ["Film production", "Short ad films", "Founder documentaries", "Brand storytelling", "Industrial films", "Real estate films", "Social video", "Post-production"],
+    knowsAbout: ["Film production", "Ad films", "Product photography", "Product video", "Founder documentaries", "Brand storytelling", "Industrial films", "Real estate films", "Social video", "Post-production"],
   };
 
   return (
